@@ -1,9 +1,9 @@
 [
   {
     "remote":     "github",
-    "repository": "DavidVazGuijarro/android_device_motorola_victara",
+    "repository": "victara/android_device_motorola_victara",
     "target_path": "device/motorola/qcom-common",
-    "revision": "android-4.4"
+    "revision": "master"
   },
   {
     "repository": "android_hardware_qcom_audio-caf-bfam",
@@ -22,7 +22,7 @@
   },
   {
     "remote":     "github",
-    "repository": "DavidVazGuijarro/proprietary_vendor_motorola",
+    "repository": "victara/proprietary_vendor_motorola",
     "target_path": "vendor/motorola",
     "revision": "master"
   }
