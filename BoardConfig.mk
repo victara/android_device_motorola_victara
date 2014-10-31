@@ -1,3 +1,21 @@
+#
+# Copyright (C) 2014 The Android Open Source Project
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+# inherit from the proprietary version
+#-include vendor/motorola/victara/BoardConfigVendor.mk
+
 LOCAL_PATH := device/motorola/victara
 
 TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp
@@ -12,6 +30,22 @@ ARCH_ARM_HAVE_TLS_REGISTER := true
 
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(LOCAL_PATH)/bluetooth
+BOARD_HAVE_BLUETOOTH := true
+BOARD_HAVE_BLUETOOTH_QCOM := true
+BLUETOOTH_HCI_USE_MCT := true
+
+# Audio
+AUDIO_FEATURE_DISABLED_FM := true
+BOARD_USES_ALSA_AUDIO := true
+BOARD_USES_FLUENCE_INCALL := true
+BOARD_USES_LEGACY_ALSA_AUDIO := true
+BOARD_USES_SEPERATED_AUDIO_INPUT := true
+BOARD_USES_SEPERATED_VOICE_SPEAKER := true
+TARGET_QCOM_AUDIO_VARIANT := caf
+TARGET_USES_QCOM_COMPRESSED_AUDIO := true
+
+# Camera
+USE_DEVICE_SPECIFIC_CAMERA := true
 
 # Krait optimizations
 TARGET_USE_KRAIT_BIONIC_OPTIMIZATION := true
@@ -20,6 +54,15 @@ TARGET_KRAIT_BIONIC_PLDOFFS := 10
 TARGET_KRAIT_BIONIC_PLDTHRESH := 10
 TARGET_KRAIT_BIONIC_BBTHRESH := 64
 TARGET_KRAIT_BIONIC_PLDSIZE := 64
+
+# Display
+BOARD_EGL_CFG := $(LOCAL_PATH)/configs/egl.cfg
+NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
+TARGET_DISPLAY_USE_RETIRE_FENCE := true
+TARGET_QCOM_DISPLAY_VARIANT := caf
+TARGET_USES_C2D_COMPOSITION := true
+TARGET_USES_ION := true
+USE_OPENGL_RENDERER := true
 
 TARGET_NO_BOOTLOADER := true
 TARGET_BOOTLOADER_BOARD_NAME := victara
