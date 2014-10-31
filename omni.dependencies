@@ -21,6 +21,11 @@
     "revision": "android-4.4"
   },
   {
+    "repository": "DavidVazGuijarro/kernel-msm",
+    "target_path": "kernel/motorola/victara",
+    "revision": "master"
+  },
+  {
     "repository": "victara/proprietary_vendor_motorola",
     "target_path": "vendor/motorola",
     "revision": "master"
