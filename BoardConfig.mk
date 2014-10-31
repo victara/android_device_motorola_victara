@@ -74,10 +74,10 @@ BOARD_KERNEL_PAGESIZE := 2048
 BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x0000000 --ramdisk_offset 0x01000000 --second_offset 0x0f00000 --tags_offset 0x0000100 --dt device/motorola/victara/dtb
 
 # prebuilt kernel
-TARGET_PREBUILT_KERNEL := device/motorola/victara/kernel
+#TARGET_PREBUILT_KERNEL := device/motorola/victara/kernel
 # else uncomment below to build from sauce
-# TARGET_KERNEL_SOURCE := kernel/motorola/victara
-# TARGET_KERNEL_CONFIG := omni_victara_defconfig
+TARGET_KERNEL_SOURCE := kernel/motorola/victara
+TARGET_KERNEL_CONFIG := victara_defconfig
 # apparently this dont work but should ;x
 # TARGET_KERNEL_APPEND_DTB := true
 # use this instead
