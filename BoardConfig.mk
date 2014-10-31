@@ -14,7 +14,7 @@
 # limitations under the License.
 
 # inherit from the proprietary version
-#-include vendor/motorola/victara/BoardConfigVendor.mk
+-include vendor/motorola/victara/BoardConfigVendor.mk
 
 LOCAL_PATH := device/motorola/victara
 
