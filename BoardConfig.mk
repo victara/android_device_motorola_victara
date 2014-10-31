@@ -64,24 +64,24 @@ TARGET_USES_C2D_COMPOSITION := true
 TARGET_USES_ION := true
 USE_OPENGL_RENDERER := true
 
+# Bootloader
+TARGET_BOOTLOADER_BOARD_NAME := MSM8974
 TARGET_NO_BOOTLOADER := true
-TARGET_BOOTLOADER_BOARD_NAME := victara
+
+# Lights
+TARGET_PROVIDES_LIBLIGHT := true
+
+# Motorola
+TARGET_USES_MOTOROLA_LOG := true
+
+# kernel build
 
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=qcom msm_rtb.filter=0x37 ehci-hcd.park=3 vmalloc=400M utags.blkdev=/dev/block/platform/msm_sdcc.1/by-name/utags
-
 BOARD_KERNEL_BASE := 0x0000000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x0000000 --ramdisk_offset 0x01000000 --second_offset 0x0f00000 --tags_offset 0x0000100 --dt device/motorola/victara/dtb
-
-# prebuilt kernel
-#TARGET_PREBUILT_KERNEL := device/motorola/victara/kernel
-# else uncomment below to build from sauce
 TARGET_KERNEL_SOURCE := kernel/motorola/victara
 TARGET_KERNEL_CONFIG := victara_defconfig
-# apparently this dont work but should ;x
-# TARGET_KERNEL_APPEND_DTB := true
-# use this instead
-# BOARD_KERNEL_IMAGE_NAME := zImage-dtb
 
 BOARD_BOOTIMAGE_PARTITION_SIZE := 14485760
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 10526720
