@@ -21,7 +21,7 @@
     "revision": "android-4.4"
   },
   {
-    "repository": "proprietary_vendor_motorola",
+    "repository": "victara/proprietary_vendor_motorola",
     "target_path": "vendor/motorola",
     "revision": "master"
   }
