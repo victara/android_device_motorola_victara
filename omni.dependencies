@@ -19,5 +19,10 @@
     "repository": "android_hardware_qcom_media-caf-bfam",
     "target_path": "hardware/qcom/media-caf-bfam",
     "revision": "android-4.4"
+  },
+  {
+    "repository": "proprietary_vendor_motorola",
+    "target_path": "vendor/motorola",
+    "revision": "master"
   }
 ]
