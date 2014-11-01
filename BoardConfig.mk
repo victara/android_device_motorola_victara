@@ -28,6 +28,8 @@ TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv7-a-neon
 ARCH_ARM_HAVE_TLS_REGISTER := true
 
+TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
+
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(LOCAL_PATH)/bluetooth
 BOARD_HAVE_BLUETOOTH := true
@@ -47,6 +49,9 @@ BLUETOOTH_HCI_USE_MCT := true
 # Camera
 USE_DEVICE_SPECIFIC_CAMERA := true
 
+# Classpath
+PRODUCT_BOOT_JARS := $(subst $(space),:,$(PRODUCT_BOOT_JARS))
+
 # Krait optimizations
 TARGET_USE_KRAIT_BIONIC_OPTIMIZATION := true
 TARGET_USE_KRAIT_PLD_SET := true
@@ -64,6 +69,12 @@ TARGET_USES_C2D_COMPOSITION := true
 TARGET_USES_ION := true
 USE_OPENGL_RENDERER := true
 
+# Init
+TARGET_INIT_VENDOR_LIB := libinit_msm
+TARGET_LIBINIT_DEFINES_FILE := $(LOCAL_PATH)/init/init_victara.c
+TARGET_NR_SVC_SUPP_GIDS := 28
+TARGET_UNIFIED_DEVICE := true
+
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := MSM8974
 TARGET_NO_BOOTLOADER := true
@@ -73,6 +84,24 @@ TARGET_PROVIDES_LIBLIGHT := true
 
 # Motorola
 TARGET_USES_MOTOROLA_LOG := true
+
+# Media
+TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
+TARGET_QCOM_MEDIA_VARIANT := caf
+
+# Partitions
+BOARD_FLASH_BLOCK_SIZE := 131072
+BOARD_HAS_LARGE_FILESYSTEM := true
+BOARD_BOOTIMAGE_PARTITION_SIZE := 0x00A00000
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 0x00A00000
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1560281088
+BOARD_USERDATAIMAGE_PARTITION_SIZE := 12884901888
+
+# Qualcomm support
+COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE
+COMMON_GLOBAL_CFLAGS += -DQCOM_BSP
+BOARD_USES_QCOM_HARDWARE := true
+TARGET_USES_QCOM_BSP := true
 
 # kernel build
 
@@ -105,3 +134,57 @@ TW_DISABLE_TTF := true
 TW_SCREEN_BLANK_ON_BOOT := true
 TW_NO_EXFAT_FUSE := true
 TW_EXCLUDE_ENCRYPTED_BACKUPS := true
+
+# SELinux
+BOARD_SEPOLICY_DIRS += \
+	$(LOCAL_PATH)/sepolicy
+
+BOARD_SEPOLICY_UNION += \
+	adbd.te \
+	app.te \
+	bluetooth_loader.te \
+	bridge.te \
+	camera.te \
+	device.te \
+	dhcp.te \
+	dnsmasq.te \
+	domain.te \
+	drmserver.te \
+	file_contexts \
+	file.te \
+	hostapd.te \
+	init_shell.te \
+	init.te \
+	libqc-opt.te \
+	mediaserver.te \
+	mpdecision.te \
+	netd.te \
+	netmgrd.te \
+	nfc.te \
+	property_contexts \
+	property.te \
+	qcom.te \
+	qmux.te \
+	radio.te \
+	rild.te \
+	rmt.te \
+	sdcard_internal.te \
+	sdcardd.te \
+	sensors.te \
+	shell.te \
+	surfaceflinger.te \
+	system.te \
+	tee.te \
+	te_macros \
+	thermald.te \
+	ueventd.te \
+	vold.te \
+	wpa_supplicant.te \
+	zygote.te
+
+ifneq ($(TARGET_BUILD_VARIANT),user)
+	BOARD_SEPOLICY_UNION += su.te
+endif
+
+# Time services
+BOARD_USES_QC_TIME_SERVICES := true
