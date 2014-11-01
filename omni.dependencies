@@ -1,7 +1,7 @@
 [
   {
     "remote":     "github",
-    "repository": "DavidVazGuijarro/android_device_motorola_victara",
+    "repository": "victara/android_device_motorola_victara",
     "target_path": "device/motorola/victara",
     "revision": "master"
   },
