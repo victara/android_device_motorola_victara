@@ -119,9 +119,9 @@ vendor/lib/libwvm.so
 vendor/lib/libWVStreamControlAPI_L1.so
 
 # GPS
--app/com.qualcomm.location.apk
--app/com.qualcomm.services.location.apk
--app/MotGeoFenceSvc.apk
+app/com.qualcomm.location.apk
+app/com.qualcomm.services.location.apk
+app/MotGeoFenceSvc.apk
 etc/permissions/com.qualcomm.location.xml
 etc/gps.conf
 etc/izat.conf
@@ -259,4 +259,4 @@ etc/firmware/atmel-a432-14062301-0102aa-victara.tdat
 
 # Time services
 bin/time_daemon
--vendor/lib/libtime_genoff.so
+vendor/lib/libtime_genoff.so
